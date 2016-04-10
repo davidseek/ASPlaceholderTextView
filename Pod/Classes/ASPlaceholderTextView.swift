@@ -29,7 +29,7 @@ public class ASPlaceholderTextView: UITextView {
         }
     }
     
-    private var secondaryDelegate: UITextViewDelegate?
+    private weak var secondaryDelegate: UITextViewDelegate?
     
     public override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
