@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASPlaceholderTextView: fbb05e9260679532628dcc1f23ae7ee163ff0dfa
+  ASPlaceholderTextView: 00e891130c2daf636a66dce10106a43846f9866e
 
 COCOAPODS: 0.39.0

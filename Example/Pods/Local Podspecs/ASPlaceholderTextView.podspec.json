@@ -1,8 +1,8 @@
 {
   "name": "ASPlaceholderTextView",
   "version": "0.1.0",
-  "summary": "A short description of ASPlaceholderTextView.",
-  "description": "",
+  "summary": "UITextView with a placeholder UILabel in Swift",
+  "description": "UITextView with a placeholder UILabel in Swift.",
   "homepage": "https://github.com/ashare80/ASPlaceholderTextView",
   "license": "MIT",
   "authors": {
