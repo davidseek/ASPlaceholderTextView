@@ -8,7 +8,7 @@
 
 import UIKit
 
-//@IBDesignable
+@IBDesignable
 public class ASPlaceholderTextView: UITextView {
     
     @IBInspectable public var placeholder: String? {
@@ -33,38 +33,21 @@ public class ASPlaceholderTextView: UITextView {
     
     public override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
-        setupLabel(placeholderLabel)
+        setupPlaceholderLabel()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupLabel(placeholderLabel)
+        setupPlaceholderLabel()
     }
     
     var left: NSLayoutConstraint?
     var width: NSLayoutConstraint?
     var top: NSLayoutConstraint?
     
-    // @IBDesignable handle
-//    #if !TARGET_INTERFACE_BUILDER
-    
     public var placeholderLabel: UILabel = UILabel()
     
-//    #else
-//    var _placeholderLabel: UILabel!
-//    var placeholderLabel: UILabel {
-//    get {
-//    if _placeholderLabel != nil {
-//    return _placeholderLabel
-//    }
-//    _placeholderLabel = UILabel()
-//    setupLabel(_placeholderLabel)
-//    }
-//    }
-//    #endif
-    
-    // For shared setup in interface builder @IBDesignable
-    func setupLabel(placeholderLabel: UILabel) {
+    func setupPlaceholderLabel() {
         
         placeholderLabel.userInteractionEnabled = false
         placeholderLabel.textColor = placeholderColor
