@@ -8,19 +8,24 @@
 
 import UIKit
 
-// @IBDesignable
+//@IBDesignable
 public class ASPlaceholderTextView: UITextView {
     
-    @IBInspectable public var placeholder: String = "" {
-        didSet {
-            placeholderLabel.text = placeholder
-            placeholderLabel.sizeToFit()
+    @IBInspectable public var placeholder: String? {
+        set {
+            placeholderLabel.text = newValue
+        }
+        get {
+            return placeholderLabel.text
         }
     }
     
-    @IBInspectable public var placeholderColor: UIColor = UIColor.lightGrayColor() {
-        didSet {
-            placeholderLabel.textColor = placeholderColor;
+    @IBInspectable public var placeholderColor: UIColor? {
+        set {
+            placeholderLabel.textColor = newValue
+        }
+        get {
+            return placeholderLabel.textColor
         }
     }
     
@@ -41,22 +46,22 @@ public class ASPlaceholderTextView: UITextView {
     var top: NSLayoutConstraint?
     
     // @IBDesignable handle
-    #if !TARGET_INTERFACE_BUILDER
+//    #if !TARGET_INTERFACE_BUILDER
     
     public var placeholderLabel: UILabel = UILabel()
     
-    #else
-    var _placeholderLabel: UILabel!
-    var placeholderLabel: UILabel {
-    get {
-    if _placeholderLabel != nil {
-    return _placeholderLabel
-    }
-    _placeholderLabel = UILabel()
-    setupLabel(_placeholderLabel)
-    }
-    }
-    #endif
+//    #else
+//    var _placeholderLabel: UILabel!
+//    var placeholderLabel: UILabel {
+//    get {
+//    if _placeholderLabel != nil {
+//    return _placeholderLabel
+//    }
+//    _placeholderLabel = UILabel()
+//    setupLabel(_placeholderLabel)
+//    }
+//    }
+//    #endif
     
     // For shared setup in interface builder @IBDesignable
     func setupLabel(placeholderLabel: UILabel) {
@@ -65,14 +70,15 @@ public class ASPlaceholderTextView: UITextView {
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.text = placeholder;
         placeholderLabel.backgroundColor = UIColor.clearColor()
+        placeholderLabel.textColor = UIColor.lightGrayColor()
         placeholderLabel.numberOfLines = 0;
-        placeholderLabel.font = self.font;
+        placeholderLabel.font = font;
         
         refreshLabelHidden()
         
-        self.addSubview(placeholderLabel)
+        addSubview(placeholderLabel)
         
-        let offset = self.textContainer.lineFragmentPadding;
+        let offset = textContainer.lineFragmentPadding;
         
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -83,7 +89,7 @@ public class ASPlaceholderTextView: UITextView {
             toItem: self,
             attribute: .Left,
             multiplier: 1,
-            constant: self.textContainerInset.left + offset
+            constant: textContainerInset.left + offset
         )
         
         width = NSLayoutConstraint(
@@ -93,7 +99,7 @@ public class ASPlaceholderTextView: UITextView {
             toItem: self,
             attribute: .Width,
             multiplier: 1,
-            constant: -(self.textContainerInset.right + offset + self.textContainerInset.left + offset)
+            constant: -(textContainerInset.right + offset + textContainerInset.left + offset)
         )
         
         top = NSLayoutConstraint(
@@ -103,21 +109,21 @@ public class ASPlaceholderTextView: UITextView {
             toItem: self,
             attribute: .Top,
             multiplier: 1,
-            constant: self.textContainerInset.top
+            constant: textContainerInset.top
         )
         
-        self.addConstraints([left!, width!, top!])
+        addConstraints([left!, width!, top!])
     }
     
     func updateLabelConstraints() {
         
-        let offset = self.textContainer.lineFragmentPadding;
+        let offset = textContainer.lineFragmentPadding;
         
-        left?.constant = self.textContainerInset.left + offset
-        width?.constant = -(self.textContainerInset.right + offset + self.textContainerInset.left + offset)
-        top?.constant = self.textContainerInset.top
+        left?.constant = textContainerInset.left + offset
+        width?.constant = -(textContainerInset.right + offset + textContainerInset.left + offset)
+        top?.constant = textContainerInset.top
         
-        self.setNeedsLayout()
+        setNeedsLayout()
     }
     
     func refreshLabelHidden() {
@@ -162,8 +168,7 @@ public extension ASPlaceholderTextView {
     
     public override var font: UIFont? {
         didSet{
-            placeholderLabel.font = font;
-            placeholderLabel.sizeToFit()
+            placeholderLabel.font = font
         }
     }
     
@@ -177,7 +182,7 @@ public extension ASPlaceholderTextView {
         didSet {
             refreshLabelHidden()
             
-            self.textViewDidChange(self)
+            textViewDidChange(self)
         }
     }
     
