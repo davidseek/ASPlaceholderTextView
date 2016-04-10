@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import ASPlaceholderTextView
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var textView: ASPlaceholderTextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,5 +23,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        textView.placeholder = "Some longer text to check out the sizing of the placeholder against how text should appear in this box that is typed..."
+//        textView.textContainerInset = UIEdgeInsets(top: 15, left: 30, bottom: 0, right: 30)
+//        textView.textAlignment = .Right
+//        textView.font = UIFont.italicSystemFontOfSize(20)
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+//        print(textView.text)
+    }
 }
 

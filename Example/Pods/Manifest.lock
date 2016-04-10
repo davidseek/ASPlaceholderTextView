@@ -1,0 +1,14 @@
+PODS:
+  - ASPlaceholderTextView (0.1.0)
+
+DEPENDENCIES:
+  - ASPlaceholderTextView (from `../`)
+
+EXTERNAL SOURCES:
+  ASPlaceholderTextView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ASPlaceholderTextView: 58f0e83bff57907a139188f4f0187e5fdcada7c4
+
+COCOAPODS: 0.39.0
