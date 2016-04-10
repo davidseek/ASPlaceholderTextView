@@ -19,22 +19,18 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/ASPlaceholderTextView"
+  s.homepage         = "https://github.com/ashare80/ASPlaceholderTextView"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Adam Share" => "ashare80@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/ASPlaceholderTextView.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/ashare80/ASPlaceholderTextView.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/adamshare'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'ASPlaceholderTextView' => ['Pod/Assets/*.png']
-  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end
