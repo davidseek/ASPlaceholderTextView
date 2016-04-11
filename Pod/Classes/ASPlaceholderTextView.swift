@@ -51,19 +51,19 @@ public class ASPlaceholderTextView: UITextView {
         
         placeholderLabel.userInteractionEnabled = false
         placeholderLabel.textColor = placeholderColor
-        placeholderLabel.text = placeholder;
+        placeholderLabel.text = placeholder
         placeholderLabel.backgroundColor = UIColor.clearColor()
         placeholderLabel.textColor = UIColor.lightGrayColor()
-        placeholderLabel.numberOfLines = 0;
-        placeholderLabel.font = font;
+        placeholderLabel.numberOfLines = 0
+        placeholderLabel.font = font
         
         refreshLabelHidden()
         
         addSubview(placeholderLabel)
         
-        let offset = textContainer.lineFragmentPadding;
+        let offset = textContainer.lineFragmentPadding
         
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false;
+        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
         
         left = NSLayoutConstraint(
             item: placeholderLabel,
@@ -100,7 +100,7 @@ public class ASPlaceholderTextView: UITextView {
     
     func updateLabelConstraints() {
         
-        let offset = textContainer.lineFragmentPadding;
+        let offset = textContainer.lineFragmentPadding
         
         left?.constant = textContainerInset.left + offset
         width?.constant = -(textContainerInset.right + offset + textContainerInset.left + offset)
@@ -111,10 +111,10 @@ public class ASPlaceholderTextView: UITextView {
     
     func refreshLabelHidden() {
         if text == "" || text == nil {
-            placeholderLabel.hidden = false;
+            placeholderLabel.hidden = false
             return
         } else {
-            placeholderLabel.hidden = true;
+            placeholderLabel.hidden = true
         }
     }
 }
