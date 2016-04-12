@@ -16,6 +16,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        
+        // Paste in images
+        textView.allowImages = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,10 +31,12 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+//        textView.maximumImageSize = CGSize(width: textView.frame.size.width/2, height: CGFloat.max)
+        
 //        textView.placeholder = "Some longer text to check out the sizing of the placeholder against how text should appear in this box that is typed..."
 //        textView.textContainerInset = UIEdgeInsets(top: 15, left: 30, bottom: 0, right: 30)
 //        textView.textAlignment = .Right
-//        textView.font = UIFont.italicSystemFontOfSize(20)
+//        textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
     }
     
     func textViewDidChange(textView: UITextView) {

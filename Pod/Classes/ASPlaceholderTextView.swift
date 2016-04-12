@@ -11,6 +11,10 @@ import UIKit
 @IBDesignable
 public class ASPlaceholderTextView: UITextView {
     
+    public var allowImages: Bool = false
+    
+    public var maximumImageSize: CGSize = CGSizeMake(UIScreen.mainScreen().bounds.width/2, CGFloat.max)
+    
     @IBInspectable public var placeholder: String? {
         set {
             placeholderLabel.text = newValue
@@ -192,6 +196,60 @@ extension ASPlaceholderTextView: UITextViewDelegate {
         refreshLabelHidden()
         
         secondaryDelegate?.textViewDidChange?(textView)
+    }
+}
+
+// MARK: Custom paste for images
+
+public extension ASPlaceholderTextView {
+    
+    private func scaledImage(image: UIImage) -> UIImage {
+        
+        var scaleFactor: CGFloat = 1
+        
+        let heightScaleFactor = image.size.height / maximumImageSize.height
+        let widthScaleFactor = image.size.width / maximumImageSize.width
+        
+        if heightScaleFactor > widthScaleFactor {
+            scaleFactor = heightScaleFactor
+        } else {
+            scaleFactor = widthScaleFactor
+        }
+        
+        if scaleFactor < 1 {
+            scaleFactor = 1
+        }
+        
+        return UIImage(CGImage: image.CGImage!, scale: scaleFactor, orientation: .Up)
+    }
+    
+    public override func paste(sender: AnyObject?) {
+        let pasteboard = UIPasteboard.generalPasteboard()
+        
+        let mutableAttrString = attributedText.mutableCopy() as! NSMutableAttributedString
+        
+        var pasteAttrString = NSMutableAttributedString()
+        
+        if allowImages, let images = pasteboard.images {
+            
+            for image in images {
+                let textAttachment = NSTextAttachment()
+                textAttachment.image = scaledImage(image)
+                
+                pasteAttrString.appendAttributedString(NSAttributedString(attachment: textAttachment))
+                pasteAttrString.appendAttributedString(NSAttributedString(string: "\n\n"))
+            }
+        }
+        else if let string = pasteboard.string {
+            pasteAttrString = NSMutableAttributedString(string: string)
+        }
+        else {
+            return
+        }
+        
+        mutableAttrString.replaceCharactersInRange(selectedRange, withAttributedString: pasteAttrString)
+        mutableAttrString.addAttribute(NSFontAttributeName, value: font!, range: NSRange(location: 0, length: mutableAttrString.length))
+        attributedText = mutableAttrString
     }
 }
 
