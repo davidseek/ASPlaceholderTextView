@@ -169,6 +169,14 @@ public extension ASPlaceholderTextView {
         }
     }
     
+    public override var attributedText: NSAttributedString! {
+        didSet {
+            refreshLabelHidden()
+            
+            textViewDidChange(self)
+        }
+    }
+    
     public override var textAlignment: NSTextAlignment {
         didSet {
             placeholderLabel.textAlignment = textAlignment
