@@ -236,7 +236,7 @@ public extension ASPlaceholderTextView {
     
     public func insertImages(images: [UIImage], range: NSRange? = nil) {
         
-        var imageAttrString = NSMutableAttributedString()
+        let imageAttrString = NSMutableAttributedString()
         for image in images {
             let textAttachment = NSTextAttachment()
             textAttachment.image = scaledImage(image)
