@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ASPlaceholderTextView"
-  s.version          = "0.1.4"
+  s.version          = "0.1.5"
   s.summary          = "UITextView with a placeholder UILabel in Swift"
 
 # This description is used to generate tags and improve search results.
