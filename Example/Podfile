@@ -1,12 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'ASPlaceholderTextView_Example', :exclusive => true do
-  pod 'ASPlaceholderTextView', :path => '../'
+target 'ASPlaceholderTextView_Example' do
+  pod 'ASPlaceholderTextView'
 end
 
-target 'ASPlaceholderTextView_Tests', :exclusive => true do
-  pod 'ASPlaceholderTextView', :path => '../'
+target 'ASPlaceholderTextView_Tests' do
+  pod 'ASPlaceholderTextView'
 
   
 end

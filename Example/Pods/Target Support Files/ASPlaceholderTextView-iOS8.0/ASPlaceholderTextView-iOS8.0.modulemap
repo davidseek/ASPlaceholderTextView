@@ -1,5 +1,5 @@
 framework module ASPlaceholderTextView {
-  umbrella header "ASPlaceholderTextView-umbrella.h"
+  umbrella header "ASPlaceholderTextView-iOS8.0-umbrella.h"
 
   export *
   module * { export * }

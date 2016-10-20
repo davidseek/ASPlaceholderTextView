@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         
         // Paste in images
         textView.allowImages = true
@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
 
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
 //        textView.maximumImageSize = CGSize(width: textView.frame.size.width/2, height: CGFloat.max)
@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITextViewDelegate {
 //        textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
     }
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
 //        print(textView.text)
     }
 }
