@@ -20,11 +20,11 @@ Pod::Spec.new do |s|
 UITextView with a placeholder UILabel in Swift.
                        DESC
 
-  s.homepage         = "https://github.com/ashare80/ASPlaceholderTextView"
+  s.homepage         = "https://github.com/davidseek/ASPlaceholderTextView"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Adam Share" => "ashare80@gmail.com" }
-  s.source           = { :git => "https://github.com/ashare80/ASPlaceholderTextView.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/davidseek/ASPlaceholderTextView", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/adamshare'
 
   s.platform     = :ios, '8.0'
